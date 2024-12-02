@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-services
+  labels:
+    app: nginx-deployment-services
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-deployment-services
+  template:
+    metadata:
+      labels:
+        app: nginx-deployment-services
+    spec:
+      containers:
+      - name: nginx
+        image: nginx-deployment-d556bf558-q2btc
+        ports:
+        - containerPort: 8000
+
